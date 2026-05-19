@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Virtual Labs - Jacobian - MC</title>
+<title>Virtual Labs - Euler's Theorem - LAUC</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;}
 body{background:#f8f9fa;color:#333;line-height:1.6;}
@@ -278,7 +278,7 @@ footer{margin-top:40px;padding:18px 0;text-align:center;color:#7f8c8d;font-size:
 <!-- ═══ HOME ═══ -->
 <div class="container home-page" id="homePage">
   <div class="home-title">
-    <h2><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;color:#3498db;margin-right:10px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M288 0H160a16 16 0 0 0-16 16v192L7 361.9C-8 379.7-2.3 408 20 415.9l408 80c22.3 7.9 43-14.2 34-36.2L304 192V16a16 16 0 0 0-16-16zM176 16h96v32h-96zm0 64h96v32h-96zm155.4 377.9L137.7 432l74-149.4c.4-.9.6-1.7.6-2.6V48h64v232c0 .9.2 1.8.6 2.6z"/></svg></span></i>Jacobian — Virtual Lab</h2>
+    <h2><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;color:#3498db;margin-right:10px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M288 0H160a16 16 0 0 0-16 16v192L7 361.9C-8 379.7-2.3 408 20 415.9l408 80c22.3 7.9 43-14.2 34-36.2L304 192V16a16 16 0 0 0-16-16zM176 16h96v32h-96zm0 64h96v32h-96zm155.4 377.9L137.7 432l74-149.4c.4-.9.6-1.7.6-2.6V48h64v232c0 .9.2 1.8.6 2.6z"/></svg></span></i>Euler's Theorem — Virtual Lab</h2>
     <p>Engineering Mathematics · Homogeneous Functions · PCCE &nbsp;|&nbsp; Tap any card to open</p>
   </div>
   <div class="cards-grid">
@@ -415,107 +415,84 @@ footer{margin-top:40px;padding:18px 0;text-align:center;color:#7f8c8d;font-size:
 <!-- ══════════ CONTENT TEMPLATES ══════════ -->
 <template id="tpl-aim">
 <div class="aim-box">
-  <h3><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;color:#3498db;margin-right:10px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-400a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm0 64a80 80 0 1 0 0 160A80 80 0 1 0 256 176zm0 48a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span>Aim of the Experiment</h3>
-  <p>To understand, compute, and apply the concept of <strong>Jacobian of a Transformation</strong> for functions of two and three variables, and to explore its role in coordinate transformations and change-of-variables in integration.</p>
+  <h3><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;color:#3498db;margin-right:10px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-400a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm0 64a80 80 0 1 0 0 160A80 80 0 1 0 256 176zm0 48a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span></i>Aim of the Experiment</h3>
+  <p>To understand and verify <strong>Euler's Theorem for Homogeneous Functions</strong> and to compute partial derivatives of homogeneous functions of two and three variables.</p>
   <ul>
-    <li>Understand the definition and physical meaning of the Jacobian determinant.</li>
-    <li>Compute J = ∂(u,v)/∂(x,y) using the 2×2 partial derivative matrix.</li>
-    <li>Compute J = ∂(u,v,w)/∂(x,y,z) using the 3×3 partial derivative matrix.</li>
-    <li>Verify the inverse property: J × J' = 1 (where J' is the Jacobian of the inverse transformation).</li>
-    <li>Apply Jacobians to Polar, Cylindrical, and Spherical coordinate systems.</li>
-    <li>Use the Jacobian for change of variables in double and triple integrals.</li>
+    <li>Understand the concept of homogeneous functions and degree of homogeneity.</li>
+    <li>Verify Euler's Theorem: x·(∂f/∂x) + y·(∂f/∂y) = n·f(x, y)</li>
+    <li>Extend to three-variable functions: x·(∂f/∂x) + y·(∂f/∂y) + z·(∂f/∂z) = n·f(x, y, z)</li>
+    <li>Compute numerical partial derivatives interactively.</li>
+    <li>Detect the degree of homogeneity of a given function automatically.</li>
   </ul>
 </div>
 </template>
 
 <template id="tpl-theory">
 <div class="theory-block">
-  <h3>1. What is a Jacobian?</h3>
-  <p>The <strong>Jacobian</strong> is the determinant of the matrix of all first-order partial derivatives of a vector-valued function. It measures how a transformation stretches, shrinks, or rotates area or volume at each point.</p>
-  <div class="highlight-box"><p><strong>Intuition:</strong> If u and v are functions of x and y, the Jacobian tells us how much a small patch of area in the xy-plane gets scaled when mapped to the uv-plane.</p></div>
-</div>
-<hr class="theory-divider">
-<div class="theory-block">
-  <h3>2. Jacobian for Two Variables</h3>
-  <p>If u = f(x, y) and v = g(x, y), the Jacobian of (u, v) with respect to (x, y) is:</p>
-  <div class="formula-box">J = ∂(u,v)     | ∂u/∂x  ∂u/∂y |
-    ─────────── = |               |
-    ∂(x,y)      | ∂v/∂x  ∂v/∂y |
-
-  = (∂u/∂x)(∂v/∂y) − (∂u/∂y)(∂v/∂x)</div>
-  <div class="highlight-box"><p>The Jacobian is also written as <strong>J(u,v/x,y)</strong>. It is a single scalar value — the determinant of the 2×2 partial derivative matrix.</p></div>
-</div>
-<hr class="theory-divider">
-<div class="theory-block">
-  <h3>3. Step-by-Step Example (2 Variables)</h3>
-  <p><strong>Given:</strong> u = x² − y², &nbsp; v = 2xy. Find J = ∂(u,v)/∂(x,y).</p>
-  <div class="step-box"><div class="step-num">Step 1 — Find all partial derivatives</div><p>∂u/∂x = 2x &nbsp;&nbsp; ∂u/∂y = −2y &nbsp;&nbsp; ∂v/∂x = 2y &nbsp;&nbsp; ∂v/∂y = 2x</p></div>
-  <div class="step-box"><div class="step-num">Step 2 — Form the 2×2 determinant</div><p>J = (∂u/∂x)(∂v/∂y) − (∂u/∂y)(∂v/∂x) = (2x)(2x) − (−2y)(2y)</p></div>
-  <div class="step-box"><div class="step-num">Step 3 — Simplify</div><p>J = 4x² + 4y² = 4(x² + y²) <span class="check-badge">✔ Computed</span></p></div>
-</div>
-<hr class="theory-divider">
-<div class="theory-block">
-  <h3>4. Jacobian for Three Variables</h3>
-  <p>If u, v, w are functions of x, y, z, the Jacobian is the <strong>3×3 determinant</strong>:</p>
-  <div class="formula-box">J = ∂(u,v,w)   | ∂u/∂x  ∂u/∂y  ∂u/∂z |
-    ─────────── = | ∂v/∂x  ∂v/∂y  ∂v/∂z |
-    ∂(x,y,z)    | ∂w/∂x  ∂w/∂y  ∂w/∂z |</div>
-</div>
-<hr class="theory-divider">
-<div class="theory-block">
-  <h3>5. Inverse Jacobian Property</h3>
-  <p>If J = ∂(u,v)/∂(x,y) and J' = ∂(x,y)/∂(u,v), then:</p>
-  <div class="formula-box">J × J' = 1  &nbsp;(provided J ≠ 0)</div>
-  <div class="step-box"><div class="step-num">Verification Example — Polar Coordinates</div>
-    <p>Forward: x = r·cosθ, y = r·sinθ &nbsp;→&nbsp; J = r<br>
-    Inverse: r = √(x²+y²), θ = arctan(y/x) &nbsp;→&nbsp; J' = 1/r<br>
-    J × J' = r × (1/r) = 1 ✓</p>
-  </div>
-</div>
-<hr class="theory-divider">
-<div class="theory-block">
-  <h3>6. Standard Coordinate Transformations</h3>
-  <div class="case-grid">
-    <div class="case-card"><h4>Polar</h4><p>x = r·cosθ, y = r·sinθ</p><div class="formula">J = r</div></div>
-    <div class="case-card"><h4>Cylindrical</h4><p>x=r·cosθ, y=r·sinθ, z=z</p><div class="formula">J = r</div></div>
-    <div class="case-card"><h4>Spherical</h4><p>x=ρsinφcosθ, y=ρsinφsinθ, z=ρcosφ</p><div class="formula">J = ρ²·sinφ</div></div>
-    <div class="case-card"><h4>General Substitution</h4><p>∬f dx dy = ∬f|J| du dv</p><div class="formula">Use |J| in integrals</div></div>
-  </div>
-</div>
-<hr class="theory-divider">
-<div class="theory-block">
-  <h3>7. Change of Variables in Integration</h3>
-  <div class="formula-box">∬_R f(x,y) dx dy = ∬_S f(x(u,v), y(u,v)) · |J| du dv
-
-where J = ∂(x,y)/∂(u,v)</div>
-  <div class="highlight-box"><p><strong>Key rule:</strong> Always use the <strong>absolute value</strong> |J| in integrals — negative Jacobian only means orientation reversal, not a negative area.</p></div>
-</div>
-<hr class="theory-divider">
-<div class="theory-block">
-  <h3>8. Singular Transformation (J = 0)</h3>
+  <h3>1. What is the Degree of a Function?</h3>
+  <p>The <strong>degree</strong> of a term is the <em>sum of the exponents</em> of all variables in that term.</p>
   <div class="degree-examples">
-    <div class="deg-item"><div class="term">J &gt; 0</div><div class="deg">Orientation preserved</div></div>
-    <div class="deg-item"><div class="term">J &lt; 0</div><div class="deg">Orientation reversed</div></div>
-    <div class="deg-item"><div class="term">J = 0</div><div class="deg">Singular — not invertible</div></div>
+    <div class="deg-item"><div class="term">x² + y²</div><div class="deg">Degree = 2</div></div>
+    <div class="deg-item"><div class="term">x³y</div><div class="deg">3+1 = 4</div></div>
+    <div class="deg-item"><div class="term">x²y²</div><div class="deg">2+2 = 4</div></div>
+  </div>
+  <div class="highlight-box"><p><strong>Important:</strong> If all terms have the <em>same total degree</em>, the function is called a <strong>Homogeneous Function</strong>.</p></div>
+</div>
+<hr class="theory-divider">
+<div class="theory-block">
+  <h3>2. Homogeneous Function</h3>
+  <p>f(x, y) is <strong>homogeneous of degree n</strong> if for any scalar t:</p>
+  <div class="formula-box">f(tx, ty) = tⁿ · f(x, y)</div>
+  <p><strong>Example:</strong> f(x,y) = x² + 2xy + y²</p>
+  <div class="formula-box small">f(tx,ty) = t²x² + 2t²xy + t²y² = t²(x²+2xy+y²) = t²·f(x,y)  ✓</div>
+</div>
+<hr class="theory-divider">
+<div class="theory-block">
+  <h3>3. Euler's Theorem</h3>
+  <div class="highlight-box"><p>If f(x,y) is homogeneous of degree n with continuous partial derivatives:</p></div>
+  <div class="formula-box">x · (∂f/∂x) + y · (∂f/∂y) = n · f(x, y)</div>
+  <p>For <strong>three variables</strong>:</p>
+  <div class="formula-box">x · (∂f/∂x) + y · (∂f/∂y) + z · (∂f/∂z) = n · f(x, y, z)</div>
+</div>
+<hr class="theory-divider">
+<div class="theory-block">
+  <h3>4. Step-by-Step Example</h3>
+  <p><strong>f(x,y) = x² + y²</strong></p>
+  <div class="step-box"><div class="step-num">Step 1 — Degree</div><p>Both terms have degree 2 → <strong>n = 2</strong></p></div>
+  <div class="step-box"><div class="step-num">Step 2 — Partial Derivatives</div><p>∂f/∂x = 2x &nbsp;|&nbsp; ∂f/∂y = 2y</p></div>
+  <div class="step-box"><div class="step-num">Step 3 — Euler's Sum</div><p>x(2x) + y(2y) = 2x² + 2y²</p></div>
+  <div class="step-box"><div class="step-num">Step 4 — Verify</div><p>n·f = 2(x²+y²) = 2x²+2y² <span class="check-badge">✔ Verified</span></p></div>
+</div>
+<hr class="theory-divider">
+<div class="theory-block">
+  <h3>5. Second Order Formula</h3>
+  <div class="formula-box">x²·(∂²f/∂x²) + 2xy·(∂²f/∂x∂y) + y²·(∂²f/∂y²) = n(n–1)·f(x,y)</div>
+</div>
+<hr class="theory-divider">
+<div class="theory-block">
+  <h3>6. Examples by Degree</h3>
+  <div class="case-grid">
+    <div class="case-card"><h4>Degree 1</h4><p>f = ax + by</p><div class="formula">x·a + y·b = 1·f</div></div>
+    <div class="case-card"><h4>Degree 2</h4><p>f = x²+xy+y²</p><div class="formula">x·fx + y·fy = 2f</div></div>
+    <div class="case-card"><h4>Degree 3</h4><p>f = x³+y³</p><div class="formula">x·fx + y·fy = 3f</div></div>
+    <div class="case-card"><h4>Fractional</h4><p>f = √(x²+y²)</p><div class="formula">x·fx + y·fy = 1·f</div></div>
   </div>
 </div>
 <hr class="theory-divider">
 <div class="theory-block">
-  <h3>9. Quick Exam Summary</h3>
+  <h3>7. Quick Exam Summary</h3>
   <table class="summary-table">
     <tr><th>Concept</th><th>Formula</th></tr>
-    <tr><td>2-variable Jacobian</td><td><code>(∂u/∂x)(∂v/∂y) − (∂u/∂y)(∂v/∂x)</code></td></tr>
-    <tr><td>Inverse property</td><td><code>J × J' = 1</code></td></tr>
-    <tr><td>Polar J</td><td><code>J = r</code></td></tr>
-    <tr><td>Cylindrical J</td><td><code>J = r</code></td></tr>
-    <tr><td>Spherical J</td><td><code>J = ρ²·sinφ</code></td></tr>
-    <tr><td>Change of variables</td><td><code>∬f dx dy = ∬f|J| du dv</code></td></tr>
+    <tr><td>Homogeneous function</td><td>f(tx,ty) = tⁿ·f(x,y)</td></tr>
+    <tr><td>Euler's Theorem (1st order)</td><td><code>x·fx + y·fy = n·f</code></td></tr>
+    <tr><td>Euler's Theorem (2nd order)</td><td><code>x²·fxx + 2xy·fxy + y²·fyy = n(n–1)·f</code></td></tr>
+    <tr><td>3-variable form</td><td><code>x·fx + y·fy + z·fz = n·f</code></td></tr>
   </table>
 </div>
 <hr class="theory-divider">
 <div class="theory-block">
-  <h3>10. Conclusion</h3>
-  <div class="highlight-box"><p>The Jacobian is a fundamental tool in multivariable calculus — it generalises the derivative to transformations, and is essential for coordinate changes in integration, physics, and engineering.</p></div>
+  <h3>8. Conclusion</h3>
+  <div class="highlight-box"><p>Euler's theorem simplifies calculations involving homogeneous functions by directly connecting them to their partial derivatives — a key result in Engineering Mathematics.</p></div>
 </div>
 </template>
 
@@ -533,54 +510,62 @@ where J = ∂(x,y)/∂(u,v)</div>
 <template id="tpl-simulation">
 <div class="sim-wrap">
   <div style="display:flex;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
-    <button class="sim-btn" id="sim-verify-btn" onclick="simTab('verify')" style="padding:8px 18px;font-size:13px;">Compute Jacobian 2×2</button>
-    <button class="sim-btn" id="sim-partial-btn" onclick="simTab('partial')" style="padding:8px 18px;font-size:13px;background:linear-gradient(to right,#7f8c8d,#555);">Compute Jacobian 3×3</button>
+    <button class="sim-btn" id="sim-verify-btn" onclick="simTab('verify')" style="padding:8px 18px;font-size:13px;">Verify Euler's Theorem</button>
+    <button class="sim-btn" id="sim-partial-btn" onclick="simTab('partial')" style="padding:8px 18px;font-size:13px;background:linear-gradient(to right,#7f8c8d,#555);">Find Partial Derivatives</button>
   </div>
   <div id="sim-verify">
+    <div class="var-toggle">
+      <span style="font-size:12px;color:#7f8c8d;align-self:center;">Variables:</span>
+      <button class="vt-btn active" id="vv2" onclick="setSimVars(2,'v')">x, y</button>
+      <button class="vt-btn" id="vv3" onclick="setSimVars(3,'v')">x, y, z</button>
+    </div>
     <div class="examples-row">
-      <span>Examples (u,v):</span>
-      <button class="ex-btn" onclick="loadJac2('x^2 - y^2','2*x*y')">u=x²−y², v=2xy</button>
-      <button class="ex-btn" onclick="loadJac2('x*y','x+y')">u=xy, v=x+y</button>
-      <button class="ex-btn" onclick="loadJac2('Math.sqrt(x*x+y*y)','Math.atan2(y,x)')">u=r, v=θ</button>
-      <button class="ex-btn" onclick="loadJac2('x^2+y','x-y^2')">u=x²+y, v=x−y²</button>
+      <span>Examples:</span>
+      <button class="ex-btn" onclick="loadSim('x^2 + 2*x*y + y^2',2,'v')">x²+2xy+y²</button>
+      <button class="ex-btn" onclick="loadSim('x^3 + y^3',3,'v')">x³+y³</button>
+      <button class="ex-btn" onclick="loadSim('Math.sqrt(x*x + y*y)',1,'v')">√(x²+y²)</button>
+      <button class="ex-btn" onclick="loadSim('x^2*y + x*y^2',3,'v')">x²y+xy²</button>
+    </div>
+    <div id="vv3-examples" style="display:none;" class="examples-row">
+      <span>3-var:</span>
+      <button class="ex-btn" onclick="loadSim('x^2 + y^2 + z^2',2,'v')">x²+y²+z²</button>
+      <button class="ex-btn" onclick="loadSim('x^3 + y^3 + z^3',3,'v')">x³+y³+z³</button>
+      <button class="ex-btn" onclick="loadSim('x*y*z',3,'v')">xyz</button>
     </div>
     <div class="sim-controls">
       <div class="sim-field">
-        <label>u(x, y) =</label>
-        <input type="text" id="v-fn" placeholder="e.g. x^2 - y^2">
-        <div class="sim-hint">Use x, y | Ops: + – * ^ / | sqrt(), Math.atan2(y,x)</div>
-      </div>
-      <div class="sim-field">
-        <label>v(x, y) =</label>
-        <input type="text" id="v-deg" placeholder="e.g. 2*x*y">
-      </div>
-    </div>
-    <button class="sim-btn" onclick="runVerify()"><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></i> Compute J (2×2)</button>
-    <div class="result-box" id="verify-result"></div>
-  </div>
-  <div id="sim-partial" style="display:none;">
-    <div class="examples-row">
-      <span>Examples (u,v,w):</span>
-      <button class="ex-btn" onclick="loadJac3('x*y*z','x^2+y','y^2+z')">u=xyz,v=x²+y,w=y²+z</button>
-      <button class="ex-btn" onclick="loadJac3('x+y','y+z','x+z')">u=x+y,v=y+z,w=x+z</button>
-      <button class="ex-btn" onclick="loadJac3('x^2','y^2','z^2')">u=x²,v=y²,w=z²</button>
-    </div>
-    <div class="sim-controls">
-      <div class="sim-field">
-        <label>u(x,y,z) =</label>
-        <input type="text" id="p-fn" placeholder="e.g. x*y*z">
+        <label>f(x, y<span id="v-zlabel"></span>) =</label>
+        <input type="text" id="v-fn" placeholder="e.g. x^2 + 2*x*y + y^2">
         <div class="sim-hint">Use x, y, z | Ops: + – * ^ / | sqrt()</div>
       </div>
       <div class="sim-field">
-        <label>v(x,y,z) =</label>
-        <input type="text" id="p-fn2" placeholder="e.g. x^2 + y">
-      </div>
-      <div class="sim-field">
-        <label>w(x,y,z) =</label>
-        <input type="text" id="p-fn3" placeholder="e.g. y^2 + z">
+        <label>Degree n</label>
+        <input type="number" id="v-deg" value="2" min="-10" max="20">
       </div>
     </div>
-    <button class="sim-btn" onclick="runPartial()"><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zm96 64h64c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H160c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16zM96 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H112c-8.8 0-16-7.2-16-16V240zm16 80h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H112c-8.8 0-16-7.2-16-16V336c0-8.8 7.2-16 16-16zm80-80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H208c-8.8 0-16-7.2-16-16V240zm16 80h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H208c-8.8 0-16-7.2-16-16V336c0-8.8 7.2-16 16-16zm80-80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16H288c-8.8 0-16-7.2-16-16V240zm0 160h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H288c-8.8 0-16-7.2-16-16V416c0-8.8 7.2-16 16-16z"/></svg></span></i> Compute J (3×3)</button>
+    <button class="sim-btn" onclick="runVerify()"><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></i> Verify</button>
+    <div class="result-box" id="verify-result"></div>
+  </div>
+  <div id="sim-partial" style="display:none;">
+    <div class="var-toggle">
+      <span style="font-size:12px;color:#7f8c8d;align-self:center;">Variables:</span>
+      <button class="vt-btn active" id="pv2" onclick="setSimVars(2,'p')">x, y</button>
+      <button class="vt-btn" id="pv3" onclick="setSimVars(3,'p')">x, y, z</button>
+    </div>
+    <div class="examples-row">
+      <span>Examples:</span>
+      <button class="ex-btn" onclick="loadSim('x^3 + 3*x*y^2','','p')">x³+3xy²</button>
+      <button class="ex-btn" onclick="loadSim('x^2*y + y^3','','p')">x²y+y³</button>
+      <button class="ex-btn" onclick="loadSim('Math.sqrt(x*x + y*y)','','p')">√(x²+y²)</button>
+    </div>
+    <div class="sim-controls">
+      <div class="sim-field">
+        <label>f(x, y<span id="p-zlabel"></span>) =</label>
+        <input type="text" id="p-fn" placeholder="e.g. x^3 + 3*x*y^2">
+        <div class="sim-hint">Use x, y, z | Ops: + – * ^ / | sqrt()</div>
+      </div>
+    </div>
+    <button class="sim-btn" onclick="runPartial()"><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zm96 64h64c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H160c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16zM96 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H112c-8.8 0-16-7.2-16-16V240zm16 80h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H112c-8.8 0-16-7.2-16-16V336c0-8.8 7.2-16 16-16zm80-80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H208c-8.8 0-16-7.2-16-16V240zm16 80h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H208c-8.8 0-16-7.2-16-16V336c0-8.8 7.2-16 16-16zm80-80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16H288c-8.8 0-16-7.2-16-16V240zm0 160h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H288c-8.8 0-16-7.2-16-16V416c0-8.8 7.2-16 16-16z"/></svg></span></i> Compute</button>
     <div class="result-box" id="partial-result"></div>
   </div>
 </div>
@@ -599,9 +584,9 @@ where J = ∂(x,y)/∂(u,v)</div>
 
 <template id="tpl-references">
 <ul class="ref-list">
-  <li><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg></span></i><div><strong>Higher Engineering Mathematics</strong> — B. S. Grewal, Khanna Publishers.<br><span style="font-size:12px;color:#7f8c8d;">Chapter on Jacobians and Transformations.</span></div></li>
-  <li><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg></span></i><div><strong>Advanced Engineering Mathematics</strong> — Erwin Kreyszig, Wiley.<br><span style="font-size:12px;color:#7f8c8d;">Jacobian Determinants, Coordinate Transformations, and Multiple Integrals.</span></div></li>
-  <li><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg></span></i><div><strong>Calculus: Early Transcendentals</strong> — James Stewart, Cengage.<br><span style="font-size:12px;color:#7f8c8d;">Multivariable Calculus — Jacobians and Change of Variables.</span></div></li>
+  <li><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg></span></i><div><strong>Higher Engineering Mathematics</strong> — B. S. Grewal, Khanna Publishers.<br><span style="font-size:12px;color:#7f8c8d;">Chapter on Partial Differentiation — Euler's Theorem.</span></div></li>
+  <li><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg></span></i><div><strong>Advanced Engineering Mathematics</strong> — Erwin Kreyszig, Wiley.<br><span style="font-size:12px;color:#7f8c8d;">Partial Derivatives, Homogeneous Functions, and Applications.</span></div></li>
+  <li><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg></span></i><div><strong>Calculus: Early Transcendentals</strong> — James Stewart, Cengage.<br><span style="font-size:12px;color:#7f8c8d;">Multivariable Calculus — Partial Derivatives.</span></div></li>
   <li><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.5 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.5-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg></span></i><div><strong>NPTEL — Engineering Mathematics</strong><br><a href="https://nptel.ac.in" target="_blank">https://nptel.ac.in</a></div></li>
   <li><span style="display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;vertical-align:-0.125em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.5 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.5-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg></span></i><div><strong>Khan Academy — Multivariable Calculus</strong><br><a href="https://www.khanacademy.org/math/multivariable-calculus" target="_blank">khanacademy.org/math/multivariable-calculus</a></div></li>
 </ul>
@@ -841,18 +826,18 @@ function openDashboard(){
 
 // ══════════ QUIZ DATA ══════════
 const preQuestions=[
-  {q:"The Jacobian J = ∂(u,v)/∂(x,y) is defined as:",opts:["(∂u/∂x)(∂v/∂y) − (∂u/∂y)(∂v/∂x)","(∂u/∂x)(∂v/∂x) − (∂u/∂y)(∂v/∂y)","∂u/∂x + ∂v/∂y","(∂u/∂x + ∂u/∂y)(∂v/∂x + ∂v/∂y)"],ans:0,hint:"The Jacobian is the determinant of the 2×2 matrix of partial derivatives. Expand along the diagonal: (row1col1)(row2col2) − (row1col2)(row2col1).",hintFormula:"J = (∂u/∂x)(∂v/∂y) − (∂u/∂y)(∂v/∂x)"},
-  {q:"If u = x² + y and v = x − y², then ∂u/∂x = ?",opts:["2x","x","1","2y"],ans:0,hint:"Differentiate u = x² + y with respect to x, treating y as constant.",hintFormula:"∂/∂x(x² + y) = 2x (y is treated as constant)"},
-  {q:"For the polar transformation x = r·cosθ, y = r·sinθ, the Jacobian ∂(x,y)/∂(r,θ) equals:",opts:["r²","r","sinθ","cosθ"],ans:1,hint:"Compute: (∂x/∂r)(∂y/∂θ) − (∂x/∂θ)(∂y/∂r). Substituting: (cosθ)(r·cosθ) − (−r·sinθ)(sinθ) = r·cos²θ + r·sin²θ = r.",hintFormula:"J = r·cos²θ + r·sin²θ = r(cos²θ + sin²θ) = r"},
-  {q:"If J = ∂(u,v)/∂(x,y) and J' = ∂(x,y)/∂(u,v), then:",opts:["J + J' = 1","J × J' = 1","J − J' = 0","J / J' = 1"],ans:1,hint:"The Jacobian of the inverse transformation is the reciprocal of the original Jacobian.",hintFormula:"J × J' = 1  (provided J ≠ 0)"},
-  {q:"If J = 0 at a point, the transformation is:",opts:["Invertible","Conformal","Singular","Linear"],ans:2,hint:"J = 0 means the transformation collapses area to zero at that point — it cannot be inverted there.",hintFormula:"J = 0  →  the transformation is singular (non-invertible)"}
+  {q:"Which is a homogeneous function of degree 2?",opts:["x² + y²","x³ + y","x + y + 1","ln(x/y)"],ans:0,hint:"All terms must have the same degree. x²+y² has all terms of degree 2.",hintFormula:"x²: degree 2, y²: degree 2 → homogeneous of degree 2"},
+  {q:"If f(x,y) = x³ + y³, the degree of homogeneity is:",opts:["1","2","3","0"],ans:2,hint:"f(tx,ty) = t³(x³+y³) = t³·f(x,y) → n = 3.",hintFormula:"f(tx,ty) = t³·f(x,y)  →  n = 3"},
+  {q:"Euler's Theorem states that for homogeneous f of degree n:",opts:["x·fx + y·fy = f","x·fx + y·fy = nf","fx + fy = nf","x²·fx + y²·fy = nf"],ans:1,hint:"Each variable times its own partial derivative, sum equals n×f.",hintFormula:"x·(∂f/∂x) + y·(∂f/∂y) = n·f(x,y)"},
+  {q:"f(x,y) = √(x² + y²) is homogeneous of degree:",opts:["0","½","1","2"],ans:2,hint:"f(tx,ty) = √(t²x²+t²y²) = t·f(x,y) → degree 1.",hintFormula:"f(tx,ty) = t¹·f(x,y)  →  n = 1"},
+  {q:"∂/∂x (x² + 2xy) = ?",opts:["2x","2x + 2y","2y","x + 2y"],ans:1,hint:"Treat y as constant: ∂/∂x(x²)=2x, ∂/∂x(2xy)=2y.",hintFormula:"∂/∂x(x² + 2xy) = 2x + 2y"}
 ];
 const postQuestions=[
-  {q:"For u = x² − y² and v = 2xy, the Jacobian J = ∂(u,v)/∂(x,y) is:",opts:["4xy","4(x²+y²)","4(x²−y²)","2(x+y)"],ans:1,hint:"∂u/∂x=2x, ∂u/∂y=−2y, ∂v/∂x=2y, ∂v/∂y=2x. J=(2x)(2x)−(−2y)(2y)=4x²+4y².",hintFormula:"J = (2x)(2x) − (−2y)(2y) = 4x² + 4y² = 4(x²+y²)"},
-  {q:"The Jacobian for spherical coordinates (ρ,φ,θ) is:",opts:["ρ·sinφ","ρ²","ρ²·sinφ","ρ²·cosφ"],ans:2,hint:"For spherical: x=ρsinφcosθ, y=ρsinφsinθ, z=ρcosφ. Expanding the 3×3 determinant gives ρ²·sinφ.",hintFormula:"J = ρ²·sinφ  (standard result for spherical coordinates)"},
-  {q:"When using the Jacobian in ∬f dx dy = ∬f|J| du dv, we use:",opts:["J exactly","−J","|J| (absolute value)","J²"],ans:2,hint:"We use |J| because area must be positive. A negative J simply indicates orientation reversal, not a negative area.",hintFormula:"|J| ensures the area element is always positive in integration"},
-  {q:"For u = r and v = θ (polar), J = ∂(x,y)/∂(r,θ) = r. What is J' = ∂(r,θ)/∂(x,y)?",opts:["r","r²","1/r","−r"],ans:2,hint:"By the inverse Jacobian property: J × J' = 1. So J' = 1/J = 1/r.",hintFormula:"J × J' = 1  →  J' = 1/J = 1/r"},
-  {q:"For the Jacobian of a 3-variable transformation, the matrix of partial derivatives is:",opts:["2×2","3×2","2×3","3×3"],ans:3,hint:"For three functions u, v, w of three variables x, y, z, there are 3×3 = 9 partial derivatives forming a 3×3 matrix.",hintFormula:"3 functions × 3 variables = 3×3 Jacobian matrix"}
+  {q:"For f(x,y,z)=x³+y³+z³, Euler's theorem gives:",opts:["fx+fy+fz=3f","x·fx+y·fy+z·fz=3f","x·fx+y·fy+z·fz=f","x·fx+y·fy=3f"],ans:1,hint:"3-var homogeneous function of degree 3. Use 3-variable form.",hintFormula:"x·fx + y·fy + z·fz = n·f  (n=3)"},
+  {q:"If f(tx,ty) = t⁴·f(x,y), then n =",opts:["1","2","3","4"],ans:3,hint:"Definition: f(tx,ty) = tⁿ·f(x,y). Read the power of t.",hintFormula:"f(tx,ty) = t⁴·f(x,y)  →  n = 4"},
+  {q:"f(x,y) = x²y + xy² is homogeneous of degree:",opts:["2","3","4","1"],ans:1,hint:"x²y: degree 3, xy²: degree 3. All same → degree 3.",hintFormula:"All terms have degree 3  →  n = 3"},
+  {q:"Which is NOT a homogeneous function?",opts:["x²+xy","x³+y³","x+y+1","x²y"],ans:2,hint:"Constant '1' has degree 0, breaking homogeneity.",hintFormula:"f(tx,ty) = tx+ty+1 ≠ tⁿ(x+y+1)"},
+  {q:"For f(x,y)=x²+2xy+y², x·∂f/∂x + y·∂f/∂y = ?",opts:["f","2f","3f","0"],ans:1,hint:"∂f/∂x=2x+2y, ∂f/∂y=2x+2y. x(2x+2y)+y(2x+2y)=2f.",hintFormula:"= 2(x²+2xy+y²) = 2f"}
 ];
 
 // ══════════ QUIZ ENGINE ══════════
@@ -955,119 +940,66 @@ function updateScore(p){
   updateAllStatuses();
 }
 
-// ══════════ SIMULATION (JACOBIAN) ══════════
+// ══════════ SIMULATION ══════════
 function simTab(t){
   document.getElementById('sim-verify').style.display=t==='verify'?'block':'none';
   document.getElementById('sim-partial').style.display=t==='partial'?'block':'none';
   document.getElementById('sim-verify-btn').style.background=t==='verify'?'linear-gradient(to right,#3498db,#2c80b9)':'linear-gradient(to right,#7f8c8d,#555)';
   document.getElementById('sim-partial-btn').style.background=t==='partial'?'linear-gradient(to right,#3498db,#2c80b9)':'linear-gradient(to right,#7f8c8d,#555)';
 }
-function loadJac2(u,v){document.getElementById('v-fn').value=u;document.getElementById('v-deg').value=v;document.getElementById('verify-result').style.display='none';}
-function loadJac3(u,v,w){document.getElementById('p-fn').value=u;if(document.getElementById('p-fn2'))document.getElementById('p-fn2').value=v;if(document.getElementById('p-fn3'))document.getElementById('p-fn3').value=w;document.getElementById('partial-result').style.display='none';}
+function setSimVars(n,m){
+  if(m==='v'){simVarsV=n;document.getElementById('vv2').classList.toggle('active',n===2);document.getElementById('vv3').classList.toggle('active',n===3);document.getElementById('v-zlabel').textContent=n===3?', z':'';document.getElementById('vv3-examples').style.display=n===3?'flex':'none';}
+  else{simVarsP=n;document.getElementById('pv2').classList.toggle('active',n===2);document.getElementById('pv3').classList.toggle('active',n===3);document.getElementById('p-zlabel').textContent=n===3?', z':'';}
+}
+function loadSim(fn,deg,m){
+  if(m==='v'){document.getElementById('v-fn').value=fn;if(deg!=='')document.getElementById('v-deg').value=deg;}
+  else document.getElementById('p-fn').value=fn;
+}
 function fmt(n){if(!isFinite(n))return '<span style="color:#e74c3c">Err</span>';if(Math.abs(n)<1e-8)return '0';return parseFloat(n.toFixed(5)).toString();}
 function pp(e){return e.replace(/\^/g,'**').replace(/sqrt\(/g,'Math.sqrt(');}
 function showR(el,html,t){el.innerHTML=html;el.style.display='block';el.className='result-box '+t;}
-function ef2(e,x,y){try{return Function('x','y','return ('+pp(e)+');')(x,y);}catch(err){return NaN;}}
-function ef3(e,x,y,z){try{return Function('x','y','z','return ('+pp(e)+');')(x,y,z);}catch(err){return NaN;}}
-function nd2(e,v,x,y){const h=1e-6;if(v==='x')return(ef2(e,x+h,y)-ef2(e,x-h,y))/(2*h);return(ef2(e,x,y+h)-ef2(e,x,y-h))/(2*h);}
-function nd3(e,v,x,y,z){const h=1e-6;if(v==='x')return(ef3(e,x+h,y,z)-ef3(e,x-h,y,z))/(2*h);if(v==='y')return(ef3(e,x,y+h,z)-ef3(e,x,y-h,z))/(2*h);return(ef3(e,x,y,z+h)-ef3(e,x,y,z-h))/(2*h);}
+function ef2(e,x,y){try{return Function('x','y','return ('+pp(e)+');')(x,y);}catch(e){return NaN;}}
+function ef3(e,x,y,z){try{return Function('x','y','z','return ('+pp(e)+');')(x,y,z);}catch(e){return NaN;}}
+function ef(e,x,y,z,i3){return i3?ef3(e,x,y,z):ef2(e,x,y);}
+function nd(e,v,x,y,z,i3){const h=1e-6;if(v==='x')return(ef(e,x+h,y,z,i3)-ef(e,x-h,y,z,i3))/(2*h);if(v==='y')return(ef(e,x,y+h,z,i3)-ef(e,x,y-h,z,i3))/(2*h);return(ef(e,x,y,z+h,i3)-ef(e,x,y,z-h,i3))/(2*h);}
 
 function runVerify(){
-  // Jacobian 2x2: J = ∂(u,v)/∂(x,y)
-  const eu=document.getElementById('v-fn').value.trim();
-  const ev=document.getElementById('v-deg').value.trim();
+  const expr=document.getElementById('v-fn').value.trim();
+  const n=parseInt(document.getElementById('v-deg').value);
   const out=document.getElementById('verify-result');
-  if(!eu||!ev){showR(out,'<div style="color:#e74c3c">Please enter both u(x,y) and v(x,y).</div>','error');return;}
-  const pts=[[2,3],[1,4],[3,1],[-1,2]];
-  let rows='';
-  for(const[x,y]of pts){
-    const dux=nd2(eu,'x',x,y),duy=nd2(eu,'y',x,y);
-    const dvx=nd2(ev,'x',x,y),dvy=nd2(ev,'y',x,y);
-    const J=dux*dvy - duy*dvx;
-    rows+=`<tr style="border-top:1px solid #eee;">
-      <td style="padding:7px 10px;font-family:monospace;">(${x},${y})</td>
-      <td style="padding:7px 10px;">${fmt(dux)}</td>
-      <td style="padding:7px 10px;">${fmt(duy)}</td>
-      <td style="padding:7px 10px;">${fmt(dvx)}</td>
-      <td style="padding:7px 10px;">${fmt(dvy)}</td>
-      <td style="padding:7px 10px;font-weight:700;color:${isFinite(J)?(Math.abs(J)<1e-6?'#e74c3c':'#27ae60'):'#e74c3c'};">${fmt(J)}</td>
-    </tr>`;
-  }
-  // Check inverse at first point
-  const[x0,y0]=[2,3];
-  const dux=nd2(eu,'x',x0,y0),duy=nd2(eu,'y',x0,y0),dvx=nd2(ev,'x',x0,y0),dvy=nd2(ev,'y',x0,y0);
-  const J0=dux*dvy-duy*dvx;
-  const Jprime=isFinite(J0)&&Math.abs(J0)>1e-8?1/J0:NaN;
-  let h=`<div class="step-item"><div class="step-label">Functions</div><div class="step-val">u(x,y) = <code>${eu}</code> &nbsp;|&nbsp; v(x,y) = <code>${ev}</code></div></div>`;
-  h+=`<div class="step-item"><div class="step-label">Jacobian Matrix (2×2) at each point</div><div class="step-val">
-    <div style="background:#1a2530;color:#3dd68c;font-family:monospace;padding:12px 16px;border-radius:6px;margin-bottom:12px;font-size:13px;">
-    J = ∂(u,v)/∂(x,y) = | ∂u/∂x  ∂u/∂y |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| ∂v/∂x  ∂v/∂y |<br><br>
-    = (∂u/∂x)(∂v/∂y) − (∂u/∂y)(∂v/∂x)
-    </div>
-    <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <tr style="background:#f8f9fa;font-size:11px;color:#7f8c8d;">
-        <td style="padding:7px 10px;">(x,y)</td>
-        <td style="padding:7px 10px;">∂u/∂x</td>
-        <td style="padding:7px 10px;">∂u/∂y</td>
-        <td style="padding:7px 10px;">∂v/∂x</td>
-        <td style="padding:7px 10px;">∂v/∂y</td>
-        <td style="padding:7px 10px;font-weight:700;">J</td>
-      </tr>${rows}
-    </table>
-  </div></div>`;
-  h+=`<div class="step-item"><div class="step-label">Inverse Jacobian Property at (${x0},${y0})</div><div class="step-val">
-    J = <strong>${fmt(J0)}</strong> &nbsp;|&nbsp; J' = 1/J = <strong>${fmt(Jprime)}</strong><br>
-    J × J' = ${fmt(J0)} × ${fmt(Jprime)} = <strong>${isFinite(J0*Jprime)?fmt(J0*Jprime):'—'}</strong>
-    &nbsp;<span class="${isFinite(J0)&&Math.abs(J0)>1e-8?'badge-ok':'badge-fail'}">${isFinite(J0)&&Math.abs(J0)>1e-8?'✓ J×J\'=1':'✗ Singular (J=0)'}</span>
-  </div></div>`;
-  showR(out,h,'success');
+  if(!expr){showR(out,'<div style="color:#e74c3c">Please enter a function.</div>','error');return;}
+  const is3=simVarsV===3;
+  const pts=[[2,3,5],[1,4,2],[3,2,6]];
+  let isHom=true;
+  for(const[x,y,z]of pts){const t=2.5;const lhs=ef(expr,t*x,t*y,t*z,is3);const rhs=Math.pow(t,n)*ef(expr,x,y,z,is3);if(!isFinite(lhs)||!isFinite(rhs)||Math.abs(lhs-rhs)>1e-3*(Math.abs(rhs)+1)){isHom=false;break;}}
+  let h=`<div class="step-item"><div class="step-label">Given</div><div class="step-val">f(${is3?'x,y,z':'x,y'})=<code>${expr}</code> | n=<strong>${n}</strong></div></div>`;
+  h+=`<div class="step-item"><div class="step-label">Homogeneity check</div><div class="step-val">`;
+  for(const pt of pts.slice(0,2)){const[x,y,z]=pt;const t=2;const lhs=ef(expr,t*x,t*y,t*z,is3);const rhs=Math.pow(t,n)*ef(expr,x,y,z,is3);const ok=isFinite(lhs)&&isFinite(rhs)&&Math.abs(lhs-rhs)<1e-3*(Math.abs(rhs)+1);h+=`(${is3?pt.join(','):[x,y].join(',')}) → f(t·x,…)=${fmt(lhs)}, t<sup>${n}</sup>·f=${fmt(rhs)} <span class="${ok?'badge-ok':'badge-fail'}">${ok?'✓':'✗'}</span><br>`;}
+  h+=`<br><strong>${isHom?'✓ Homogeneous of degree '+n:'✗ Not homogeneous of degree '+n}</strong></div></div>`;
+  if(!isHom){h+=`<div class="step-item"><div class="step-label">Conclusion</div><div class="step-val"><span class="badge-fail">Theorem does not apply</span></div></div>`;showR(out,h,'error');return;}
+  const x=2,y=3,z=5;
+  const fx=nd(expr,'x',x,y,z,is3),fy=nd(expr,'y',x,y,z,is3),fz=is3?nd(expr,'z',x,y,z,is3):0;
+  const fval=ef(expr,x,y,z,is3),es=x*fx+y*fy+(is3?z*fz:0),nf=n*fval;
+  const ok=isFinite(es)&&isFinite(nf)&&Math.abs(es-nf)<1e-3*(Math.abs(nf)+1);
+  h+=`<div class="step-item"><div class="step-label">Partials at (${is3?`${x},${y},${z}`:`${x},${y}`})</div><div class="step-val">∂f/∂x=<code>${fmt(fx)}</code> | ∂f/∂y=<code>${fmt(fy)}</code>${is3?` | ∂f/∂z=<code>${fmt(fz)}</code>`:''}</div></div>`;
+  h+=`<div class="step-item"><div class="step-label">Euler sum</div><div class="step-val">x·fx+y·fy${is3?'+z·fz':''}=<strong>${fmt(es)}</strong> &nbsp;|&nbsp; n·f=<strong>${fmt(nf)}</strong></div></div>`;
+  h+=`<div class="step-item"><div class="step-label">Result</div><div class="step-val"><span class="${ok?'badge-ok':'badge-fail'}">${ok?"✓ Euler's Theorem Verified":"✗ Values don't match"}</span></div></div>`;
+  showR(out,h,ok?'success':'error');
 }
 
 function runPartial(){
-  // Jacobian 3x3: J = ∂(u,v,w)/∂(x,y,z)
-  const eu=document.getElementById('p-fn').value.trim();
-  const ev=document.getElementById('p-fn2')?document.getElementById('p-fn2').value.trim():'';
-  const ew=document.getElementById('p-fn3')?document.getElementById('p-fn3').value.trim():'';
+  const expr=document.getElementById('p-fn').value.trim();
   const out=document.getElementById('partial-result');
-  if(!eu||!ev||!ew){showR(out,'<div style="color:#e74c3c">Please enter u, v, and w functions.</div>','error');return;}
-  const pts=[[2,3,5],[1,2,1]];
+  if(!expr){showR(out,'<div style="color:#e74c3c">Please enter a function.</div>','error');return;}
+  const is3=simVarsP===3;
+  const pts=is3?[[2,3,5],[1,4,2]]:[[2,3],[1,4]];
+  let h=`<div class="step-item"><div class="step-label">Function</div><div class="step-val">f(${is3?'x,y,z':'x,y'})=<code>${expr}</code></div></div>`;
   let rows='';
-  for(const[x,y,z]of pts){
-    const dux=nd3(eu,'x',x,y,z),duy=nd3(eu,'y',x,y,z),duz=nd3(eu,'z',x,y,z);
-    const dvx=nd3(ev,'x',x,y,z),dvy=nd3(ev,'y',x,y,z),dvz=nd3(ev,'z',x,y,z);
-    const dwx=nd3(ew,'x',x,y,z),dwy=nd3(ew,'y',x,y,z),dwz=nd3(ew,'z',x,y,z);
-    // 3x3 determinant
-    const J=dux*(dvy*dwz-dvz*dwy)-duy*(dvx*dwz-dvz*dwx)+duz*(dvx*dwy-dvy*dwx);
-    rows+=`<tr style="border-top:1px solid #eee;">
-      <td style="padding:7px 10px;font-family:monospace;">(${x},${y},${z})</td>
-      <td style="padding:7px 10px;">${fmt(dux)}</td><td style="padding:7px 10px;">${fmt(duy)}</td><td style="padding:7px 10px;">${fmt(duz)}</td>
-      <td style="padding:7px 10px;">${fmt(dvx)}</td><td style="padding:7px 10px;">${fmt(dvy)}</td><td style="padding:7px 10px;">${fmt(dvz)}</td>
-      <td style="padding:7px 10px;">${fmt(dwx)}</td><td style="padding:7px 10px;">${fmt(dwy)}</td><td style="padding:7px 10px;">${fmt(dwz)}</td>
-      <td style="padding:7px 10px;font-weight:700;color:${isFinite(J)?(Math.abs(J)<1e-6?'#e74c3c':'#27ae60'):'#e74c3c'};">${fmt(J)}</td>
-    </tr>`;
-  }
-  let h=`<div class="step-item"><div class="step-label">Functions</div><div class="step-val">u = <code>${eu}</code> &nbsp;|&nbsp; v = <code>${ev}</code> &nbsp;|&nbsp; w = <code>${ew}</code></div></div>`;
-  h+=`<div class="step-item"><div class="step-label">3×3 Jacobian Matrix Formula</div><div class="step-val">
-    <div style="background:#1a2530;color:#3dd68c;font-family:monospace;padding:12px 16px;border-radius:6px;font-size:12px;">
-    J = ∂(u,v,w)/∂(x,y,z) = | ∂u/∂x  ∂u/∂y  ∂u/∂z |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| ∂v/∂x  ∂v/∂y  ∂v/∂z |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| ∂w/∂x  ∂w/∂y  ∂w/∂z |
-    </div>
-  </div></div>`;
-  h+=`<div class="step-item"><div class="step-label">Computed values (partial derivatives + J)</div><div class="step-val">
-    <div style="overflow-x:auto;">
-    <table style="width:100%;border-collapse:collapse;font-size:11px;min-width:600px;">
-      <tr style="background:#f8f9fa;color:#7f8c8d;">
-        <td style="padding:6px 8px;">(x,y,z)</td>
-        <td style="padding:6px 8px;">∂u/∂x</td><td style="padding:6px 8px;">∂u/∂y</td><td style="padding:6px 8px;">∂u/∂z</td>
-        <td style="padding:6px 8px;">∂v/∂x</td><td style="padding:6px 8px;">∂v/∂y</td><td style="padding:6px 8px;">∂v/∂z</td>
-        <td style="padding:6px 8px;">∂w/∂x</td><td style="padding:6px 8px;">∂w/∂y</td><td style="padding:6px 8px;">∂w/∂z</td>
-        <td style="padding:6px 8px;font-weight:700;">J</td>
-      </tr>${rows}
-    </table>
-    </div>
-  </div></div>`;
+  for(const pt of pts){const[x,y,z]=[pt[0],pt[1],pt[2]||1];const fv=ef(expr,x,y,z,is3),fx=nd(expr,'x',x,y,z,is3),fy=nd(expr,'y',x,y,z,is3),fz=is3?nd(expr,'z',x,y,z,is3):null;rows+=`<tr style="border-top:1px solid #eee;"><td style="padding:7px 10px;font-family:monospace;">(${is3?pt.join(','):[x,y].join(',')})</td><td style="padding:7px 10px;">${fmt(fv)}</td><td style="padding:7px 10px;">${fmt(fx)}</td><td style="padding:7px 10px;">${fmt(fy)}</td>${is3?`<td style="padding:7px 10px;">${fmt(fz)}</td>`:''}</tr>`;}
+  h+=`<div class="step-item"><div class="step-label">Partial derivatives</div><div class="step-val"><table style="width:100%;border-collapse:collapse;font-size:13px;"><tr style="font-size:11px;color:#7f8c8d;background:#f8f9fa;"><td style="padding:7px 10px;">(x,y${is3?',z':''})</td><td style="padding:7px 10px;">f</td><td style="padding:7px 10px;">∂f/∂x</td><td style="padding:7px 10px;">∂f/∂y</td>${is3?'<td style="padding:7px 10px;">∂f/∂z</td>':''}</tr>${rows}</table></div></div>`;
+  const x=2,y=3,z=5,fx=nd(expr,'x',x,y,z,is3),fy=nd(expr,'y',x,y,z,is3),fz2=is3?nd(expr,'z',x,y,z,is3):0,fv=ef(expr,x,y,z,is3),es=x*fx+y*fy+(is3?z*fz2:0);
+  let deg='unknown';for(let d=-3;d<=8;d++){if(isFinite(es)&&isFinite(fv)&&Math.abs(es-d*fv)<1e-3*(Math.abs(fv)+1)){deg=d;break;}}
+  h+=`<div class="step-item"><div class="step-label">Auto-detected degree</div><div class="step-val"><span class="${deg!=='unknown'?'badge-info':'badge-fail'}">${deg!=='unknown'?'n = '+deg:'Could not detect'}</span></div></div>`;
   showR(out,h,'info');
 }
 
@@ -1090,10 +1022,10 @@ function submitFeedback(){
   const comments=document.getElementById('fb-comments').value.trim();
   const stars=starRating>0?'★'.repeat(starRating)+'☆'.repeat(5-starRating):'Not rated';
   if(!name){alert('Please enter your name before submitting.');return;}
-  const to='anirudh.nair25@pccoepune.org,siddharth.shelke25@pccoepune.org,pruthviraj.bankar25@pccoepune.org';
-  const subject=encodeURIComponent("Virtual Lab Feedback – Jacobian");
+  const to='shivendra.varute25@pccoepune.org,anushk.bandre25@pccoepune.org,aakanksh.muley25@pccoepune.org';
+  const subject=encodeURIComponent("Virtual Lab Feedback – Euler's Theorem");
   const body=encodeURIComponent(
-    "Virtual Lab Feedback — Jacobian\n=========================================\n\n"+
+    "Virtual Lab Feedback — Euler's Theorem\n==========================================\n\n"+
     'Student Name  : '+name+'\nRoll Number   : '+(roll||'Not provided')+
     '\nRating        : '+stars+' ('+starRating+'/5)'+
     '\nTheory Clarity: '+(clarity||'Not selected')+
